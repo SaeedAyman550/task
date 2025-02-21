@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.test.databinding.BrandItemBinding
 import com.example.test.domain.models.BrandsData
+import com.example.test.presentation.utils.loadImageWithShimmer
 import javax.sql.DataSource
 
 class BrandAdapter() :
@@ -34,30 +35,11 @@ class BrandAdapter() :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(brand: BrandsData) {
-            Glide.with(itemView.context)
-                .load(brand.image)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: com.bumptech.glide.load.DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        binding.shimmer.visibility = View.GONE
-                        return false
-                    }
-
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        return false
-                    }
-                })
-                .into(binding.image)
+            loadImageWithShimmer(
+                imageUri=brand.image,
+                image=binding.image,
+                shimmer=binding.shimmer
+            )
             binding.appCompatTextView.text = brand.name
         }
     }
