@@ -2,4 +2,6 @@
     <string name="app_name">Test</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_cars">New Cars</string>
+    <string name="search_brands">Search Brands</string>
 </resources>
