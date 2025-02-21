@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\layout_fragment_brands.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\layout\\fragment_brands.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\drawable_window_back_ground.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\drawable\\window_back_ground.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\drawable_s.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\drawable\\s.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-pngs-52:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.test.app-debug-56:/layout_fragment_brands.xml.flat",
+        "source": "com.example.test.app-main-58:/layout/fragment_brands.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-debug-56:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\SOFTLAPTOP\\.gradle\\daemon\\8.7\\com.example.test.app-main-58:\\mipmap-xhdpi\\ic_launcher.webp"
+    }
+]
