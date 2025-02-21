@@ -2,8 +2,10 @@ package com.example.test.data.repository
 
 
 import com.example.test.data.mapper.FromDtoToBrandsModelMapper
+import com.example.test.data.mapper.FromDtoToModelsModelMapper
 import com.example.test.data.remote.api.TestApi
 import com.example.test.domain.models.BrandsModel
+import com.example.test.domain.models.ModelsModel
 import com.example.test.domain.repository.TestRepo
 import com.example.test.domain.utils.ErrorData
 import com.example.test.domain.utils.Resourse
@@ -23,7 +25,7 @@ class TestRepoImp(
             else
                 Resourse.Error(result.message.toString(), ErrorData.UnKnownError)
         } catch (e: HttpException) {
-            return when (e.hashCode()) {
+            return when (e.code()) {
                 404 ->
                     Resourse.Error(errorType = ErrorData.NotFoundError)
 
@@ -38,6 +40,17 @@ class TestRepoImp(
             }
         } catch (e: Exception) {
             Resourse.Error("${e.message.toString()} exception", ErrorData.UnKnownError)
+        }
+
+    }
+
+    override suspend fun getModels(page: Int, brand: Int, category: Int): Resourse<ModelsModel> {
+        return try {
+            val result = api.getModels(page=page,brand=brand,category=category)
+                Resourse.Success(FromDtoToModelsModelMapper.map(result))
+
+        } catch (e: Exception) {
+            Resourse.Error("${e.message.toString()} exception")
         }
 
     }

@@ -2,6 +2,7 @@ package com.example.test.data.remote.api
 
 
 import com.example.test.data.remote.dto.BrandsDto
+import com.example.test.data.remote.dto.ModelsDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,5 +13,11 @@ interface TestApi {
         @Query("category") category: Int,
     ): BrandsDto
 
+    @GET("models")
+    suspend fun getModels(
+        @Query("page") page: Int,
+        @Query("brand")brand: Int,
+        @Query("category") category: Int,
 
+        ): ModelsDto
 }

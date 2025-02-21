@@ -7,7 +7,7 @@ sealed class Resourse<T>(
     val errorType: ErrorData? = null
 ) {
     class Success<T>(data: T) : Resourse<T>(data)
-    class Error<T>(message: String="", errorType: ErrorData) : Resourse<T>(null, message, errorType)
+    class Error<T>(message: String="", errorType: ErrorData=ErrorData.UnKnownError) : Resourse<T>(null, message, errorType)
     class Loading<T> : Resourse<T>()
 }
 enum class ErrorData{
