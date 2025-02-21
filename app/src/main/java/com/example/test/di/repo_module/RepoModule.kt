@@ -1,6 +1,9 @@
 package com.example.test.di.repo_module
 
 
+import com.example.test.data.remote.api.TestApi
+import com.example.test.data.repository.TestRepoImp
+import com.example.test.domain.repository.TestRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +16,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepoModule {
 
+    @Provides
+    @Singleton
+    fun provideTestRepo(api:TestApi): TestRepo {
+        return TestRepoImp(api)
+    }
 
 
 

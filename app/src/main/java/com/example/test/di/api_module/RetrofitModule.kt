@@ -1,5 +1,6 @@
 package com.example.test.di.api_module
 
+import com.example.test.data.remote.api.TestApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,13 +17,19 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitPrayerTimes(): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://emotive-api.creteagency.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
+
+    @Provides
+    @Singleton
+    fun provideTestApi(retrofit: Retrofit): TestApi {
+        return retrofit.create(TestApi::class.java)
+    }
 
 
 }
