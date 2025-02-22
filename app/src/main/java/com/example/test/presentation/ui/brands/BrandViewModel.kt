@@ -2,7 +2,7 @@ package com.example.test.presentation.ui.brands
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.test.domain.models.BrandsData
+import com.example.test.domain.models.BrandsItem
 import com.example.test.domain.use_cases.BrandsUseCase
 import com.example.test.domain.utils.ErrorData
 import com.example.test.domain.utils.Resourse
@@ -21,7 +21,11 @@ class BrandViewModel @Inject constructor(
     private val _brandStateFlow = MutableStateFlow(BrandsState())
     val brandStateFlow = _brandStateFlow.asStateFlow()
 
-    var brandList= mutableListOf<BrandsData>()
+    var brandList= mutableListOf<BrandsItem>()
+
+    init {
+        getBrands()
+    }
 
     fun getBrands(
 

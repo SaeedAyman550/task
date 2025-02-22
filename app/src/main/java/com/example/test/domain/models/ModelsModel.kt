@@ -4,13 +4,13 @@ package com.example.test.domain.models
 
 data class ModelsModel(
 
-    val data: List<ModelsData> = emptyList(),
+    val data: List<ModelsItem> = emptyList(),
     val message: String=""
 )
 
-data class ModelsData(
+data class ModelsItem(
 
-    val attribute_image: String="",
+    val image: String="",
     val attribute_value: String="",
     val identification_attribute_id: Int= -1,
     val identification_attribute_value_id: Int= -1,

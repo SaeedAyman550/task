@@ -1,23 +1,18 @@
 package com.example.test.presentation.ui.brands
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.example.test.databinding.BrandItemBinding
-import com.example.test.domain.models.BrandsData
+import com.example.test.domain.models.BrandsItem
 import com.example.test.presentation.utils.loadImageWithShimmer
-import javax.sql.DataSource
 
-class BrandAdapter() :
+class BrandAdapter(
+    val listener: (BrandsItem) -> Unit
+) :
     RecyclerView.Adapter<BrandAdapter.BrandViewHolder>() {
-    private var brandList: List<BrandsData> = emptyList()
+    private var brandList: List<BrandsItem> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
         val binding = BrandItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,6 +21,9 @@ class BrandAdapter() :
 
     override fun onBindViewHolder(holder: BrandViewHolder, position: Int) {
         val brand = brandList[position]
+        holder.itemView.setOnClickListener{
+            listener(brand)
+        }
         holder.bind(brand)
     }
 
@@ -34,7 +32,7 @@ class BrandAdapter() :
     inner class BrandViewHolder(private val binding: BrandItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(brand: BrandsData) {
+        fun bind(brand: BrandsItem) {
             loadImageWithShimmer(
                 imageUri=brand.image,
                 image=binding.image,
@@ -45,7 +43,7 @@ class BrandAdapter() :
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(newList: List<BrandsData>) {
+    fun updateList(newList: List<BrandsItem>) {
         brandList=newList
         notifyDataSetChanged()
     }
