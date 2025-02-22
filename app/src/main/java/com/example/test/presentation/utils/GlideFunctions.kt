@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
@@ -12,10 +13,12 @@ import com.bumptech.glide.request.target.Target
 fun loadImageWithShimmer(
     imageUri:String,
     image:ImageView,
-    shimmer:View
+    shimmer:View,
+    radius:Int=1
 ){
     Glide.with(image.context)
         .load(imageUri)
+        .transform(RoundedCorners(radius))
         .listener(object : RequestListener<Drawable> {
             override fun onResourceReady(
                 resource: Drawable?,
@@ -37,5 +40,16 @@ fun loadImageWithShimmer(
                 return false
             }
         })
+        .into(image)
+}
+
+fun loadGlideImage(
+    imageUri:String,
+    image:ImageView,
+    radius:Int=1
+){
+    Glide.with(image.context)
+        .load(imageUri)
+        .transform(RoundedCorners(radius))
         .into(image)
 }
