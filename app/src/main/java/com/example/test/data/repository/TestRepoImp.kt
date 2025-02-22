@@ -3,9 +3,11 @@ package com.example.test.data.repository
 
 import com.example.test.data.mapper.FromDtoToBrandsModelMapper
 import com.example.test.data.mapper.FromDtoToModelsModelMapper
+import com.example.test.data.mapper.FromDtoToVehiclsModelMapper
 import com.example.test.data.remote.api.TestApi
 import com.example.test.domain.models.BrandsModel
 import com.example.test.domain.models.ModelsModel
+import com.example.test.domain.models.VehiclesModel
 import com.example.test.domain.repository.TestRepo
 import com.example.test.domain.utils.ErrorData
 import com.example.test.domain.utils.Resourse
@@ -53,6 +55,19 @@ class TestRepoImp(
             Resourse.Error("${e.message.toString()} exception")
         }
 
+    }
+
+    override suspend fun getVehicles(
+        model: Int,
+        brand: Int,
+        category: Int
+    ): Resourse<VehiclesModel> {
+        return try {
+            val result = api.getVehicles(model=model,brand=brand,category=category)
+            Resourse.Success(FromDtoToVehiclsModelMapper.map(result))
+        } catch (e: Exception) {
+            Resourse.Error("${e.message.toString()} exception")
+        }
     }
 
 

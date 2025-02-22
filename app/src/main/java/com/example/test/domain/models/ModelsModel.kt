@@ -9,7 +9,7 @@ data class ModelsModel(
 )
 
 data class ModelsItem(
-
+    val id: Int=-1,
     val image: String="",
     val attribute_value: String="",
     val identification_attribute_id: Int= -1,
