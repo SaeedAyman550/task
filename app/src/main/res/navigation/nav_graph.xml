@@ -10,4 +10,16 @@
         android:name="com.example.test.presentation.ui.brands.BrandsFragment"
         android:label="fragment_brands"
         tools:layout="@layout/fragment_brands" />
+    <fragment
+        android:id="@+id/modelsFragment"
+        android:name="com.example.test.presentation.ui.models.ModelsFragment"
+        android:label="ModelsFragment" >
+        <deepLink app:uri="test://example.example.test/models/{brandId}/{imageUri}"/>
+        <argument
+            android:name="brandId"
+            app:argType="string" />
+        <argument
+            android:name="imageUri"
+            app:argType="string" />
+    </fragment>
 </navigation>

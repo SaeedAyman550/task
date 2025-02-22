@@ -4,5 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#F6CEBE</color>
     <color name="whiteOpacity">#F9F9F9</color>
+    <color name="colorSecondary">#EB8855</color>
+    <color name="carYearModelItemColor">#969696</color>
+
 
 </resources>

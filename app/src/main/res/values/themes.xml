@@ -2,8 +2,44 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Test" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
 
     </style>
 
     <style name="Theme.Test" parent="Base.Theme.Test" />
+
+
+    <style name="imageCardIcon">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@drawable/card_white_corner</item>
+    </style>
+
+    <style name="carNameTextItem">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+       <item name="android:textStyle">bold</item>
+    </style>
+    <style name="carPriceTextItem">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="carYearModelTextItem">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/carYearModelItemColor</item>
+        <item name="android:fontWeight">600</item>
+    </style>
+    <style name="carStartingFromTextItem">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/carYearModelItemColor</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+
+
+
 </resources>
