@@ -55,20 +55,25 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
                 header = LoadingStateAdapter(),
                 footer = LoadingStateAdapter()
             )
+        setUpGridDesign(!isGridDesign)
         binding.modelRec.adapter = adapter
     }
 
     private fun onClickGridIcon() {
         binding.gridIcon.setOnClickListener {
-            if (isGridDesign) {
-                binding.gridIcon.setImageResource(R.drawable.grid_icon)
-                binding.modelRec.layoutManager = GridLayoutManager(requireContext(), 1)
-            } else {
-                binding.gridIcon.setImageResource(R.drawable.list_icon)
-                binding.modelRec.layoutManager = GridLayoutManager(requireContext(), 2)
-            }
+            setUpGridDesign(isGridDesign)
             isGridDesign = !isGridDesign
             modelAdapter.changeScreen(isGridDesign)
+        }
+    }
+
+    private fun setUpGridDesign(isGrid:Boolean) {
+        if (isGrid) {
+            binding.gridIcon.setImageResource(R.drawable.grid_icon)
+            binding.modelRec.layoutManager = GridLayoutManager(requireContext(), 1)
+        } else {
+            binding.gridIcon.setImageResource(R.drawable.list_icon)
+            binding.modelRec.layoutManager = GridLayoutManager(requireContext(), 2)
         }
     }
 

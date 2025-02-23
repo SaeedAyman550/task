@@ -92,8 +92,6 @@
             android:id="@+id/model_rec"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="1"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
