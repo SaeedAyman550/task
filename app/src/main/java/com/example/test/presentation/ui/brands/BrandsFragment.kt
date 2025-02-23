@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.test.R
 import com.example.test.databinding.FragmentBrandsBinding
 import com.example.test.domain.models.BrandsItem
@@ -44,9 +45,13 @@ class BrandsFragment : Fragment(R.layout.fragment_brands) {
 
 
     private fun hideKeyboardWhenScroll() {
-        binding.nestedScroll.viewTreeObserver.addOnScrollChangedListener {
-            requireActivity().hideKeyboard()
-        }
+        binding.brandRec.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                requireActivity().hideKeyboard()
+
+            }
+        })
     }
 
     private fun createAdapter() = BrandAdapter { brandItem ->
