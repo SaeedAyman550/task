@@ -16,6 +16,7 @@ import com.example.test.R
 import com.example.test.databinding.FragmentBrandsBinding
 import com.example.test.domain.models.BrandsItem
 import com.example.test.presentation.utils.getNavOptionAnimation
+import com.example.test.presentation.utils.hideKeyboard
 import com.example.test.presentation.utils.navigateToModelScreenUri
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -36,7 +37,16 @@ class BrandsFragment : Fragment(R.layout.fragment_brands) {
         val brandAdapter = createAdapter()
         handleBrandsState(brandAdapter)
         searchForBrand(brandAdapter)
+        hideKeyboardWhenScroll()
 
+
+    }
+
+
+    private fun hideKeyboardWhenScroll() {
+        binding.nestedScroll.viewTreeObserver.addOnScrollChangedListener {
+            requireActivity().hideKeyboard()
+        }
     }
 
     private fun createAdapter() = BrandAdapter { brandItem ->
