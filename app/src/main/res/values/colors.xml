@@ -6,6 +6,8 @@
     <color name="whiteOpacity">#F9F9F9</color>
     <color name="colorSecondary">#EB8855</color>
     <color name="carYearModelItemColor">#969696</color>
+    <color name="carIconColor">#3D3D3D</color>
+    <color name="differenceTextColor">#707070</color>
 
 
 </resources>

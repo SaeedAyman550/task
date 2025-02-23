@@ -14,18 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:id="@+id/shimmer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FAECE1"
-                    />
-
-            </com.facebook.shimmer.ShimmerFrameLayout>
+          <include
+              android:id="@+id/shimmer"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                layout="@layout/shimmer"
+              />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,8 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_marginTop="14dp"
-                    android:scaleType="fitCenter"
-                    android:background="#F9F9F9"
+                    style="@style/imageCarModelItem"
                     />
 
                 <LinearLayout

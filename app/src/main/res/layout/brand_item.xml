@@ -17,18 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.facebook.shimmer.ShimmerFrameLayout
+            <include
                 android:id="@+id/shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FAECE1"
-                    />
-
-            </com.facebook.shimmer.ShimmerFrameLayout>
+                layout="@layout/shimmer"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
