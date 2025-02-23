@@ -1,5 +1,6 @@
 package com.example.test.presentation.ui.models
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,10 +17,14 @@ import com.example.test.R
 import com.example.test.databinding.FragmentModelsBinding
 import com.example.test.domain.models.ModelsItem
 import com.example.test.presentation.utils.LoadingStateAdapter
+import com.example.test.presentation.utils.getNavOptionAnimation
 import com.example.test.presentation.utils.loadGlideImage
+import com.example.test.presentation.utils.navigateToVehiclesScreenUri
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.net.URLDecoder
+import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 @AndroidEntryPoint
@@ -26,15 +32,16 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
 
     private lateinit var binding: FragmentModelsBinding
     private val viewModel: ModelsViewModel by viewModels()
-    private val modelAdapter =ModelAdapter(createComparator())
+    private val modelAdapter = createModelAdapter()
     private val brandArgs: ModelsFragmentArgs by navArgs()
-    private var isGridDesign=false
+    private var isGridDesign = false
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding=FragmentModelsBinding.bind(view)
+        binding = FragmentModelsBinding.bind(view)
 
-        viewModel.getModels(brandArgs.brandId.toInt())
+
         setRecycleAdapter()
         onClickGridIcon()
         handleModelsState()
@@ -42,13 +49,13 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
 
     }
 
-    private fun setRecycleAdapter(){
+    private fun setRecycleAdapter() {
         val adapter =
             modelAdapter.withLoadStateHeaderAndFooter(
-            header = LoadingStateAdapter(),
-            footer = LoadingStateAdapter()
-        )
-        binding.modelRec.adapter=adapter
+                header = LoadingStateAdapter(),
+                footer = LoadingStateAdapter()
+            )
+        binding.modelRec.adapter = adapter
     }
 
     private fun onClickGridIcon() {
@@ -77,15 +84,30 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
                 .collect { state ->
                     when {
                         state.loading -> {}
-                        state.error.isNotEmpty() -> Toast.makeText(requireContext(), state.error, Toast.LENGTH_SHORT).show()
-                        else ->modelAdapter.submitData(state.data)
+                        state.error.isNotEmpty() -> Toast.makeText(
+                            requireContext(),
+                            state.error,
+                            Toast.LENGTH_SHORT
+                        ).show()
 
+                        else -> modelAdapter.submitData(state.data)
                     }
                 }
         }
     }
 
+    private fun createModelAdapter() = ModelAdapter(createComparator()) { modelItem ->
+        navigateToVehicles(modelItem)
+    }
 
+    private fun navigateToVehicles(modelItem: ModelsItem) {
+        val encodedJson =
+            URLEncoder.encode(modelItem.parent_brand_image, StandardCharsets.UTF_8.toString())
+        val deepLinkUri =
+            Uri.parse(navigateToVehiclesScreenUri(brandArgs.brandId, modelItem.id, encodedJson))
+        val navOptions = getNavOptionAnimation()
+        findNavController().navigate(deepLinkUri, navOptions)
+    }
 
     private fun createComparator() = object : DiffUtil.ItemCallback<ModelsItem>() {
         override fun areItemsTheSame(oldItem: ModelsItem, newItem: ModelsItem): Boolean {
@@ -96,6 +118,4 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
             return oldItem.identification_attribute_id == newItem.identification_attribute_id
         }
     }
-
-
 }

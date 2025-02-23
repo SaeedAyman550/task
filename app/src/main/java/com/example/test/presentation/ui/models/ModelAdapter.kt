@@ -8,11 +8,13 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test.databinding.ModelItemBinding
+import com.example.test.domain.models.BrandsItem
 import com.example.test.domain.models.ModelsItem
 import com.example.test.presentation.utils.loadImageWithShimmer
 
 class ModelAdapter(
-    comparator: DiffUtil.ItemCallback<ModelsItem>
+    comparator: DiffUtil.ItemCallback<ModelsItem>,
+    val listener: (ModelsItem) -> Unit,
 ): PagingDataAdapter<ModelsItem, ModelAdapter.MainViewHolder>(comparator){
 
     private var isGridDesign=false
@@ -44,8 +46,11 @@ class ModelAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        val model = getItem(position)
-        holder.bind(model?:ModelsItem())
+            val model = getItem(position)
+            holder.bind(model ?: ModelsItem())
+            holder.itemView.setOnClickListener {
+                listener(model ?: ModelsItem())
+            }
     }
 
 

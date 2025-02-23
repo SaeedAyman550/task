@@ -17,6 +17,7 @@ object FromDtoToModelsModelMapper : Mapper<ModelsDto, ModelsModel> {
                 ModelsModel(
                 data = input.data?.map { modelDto ->
                     ModelsItem(
+                        id = modelDto.id?:-1,
                          image =modelDto.image?:"",
                      attribute_value=modelDto.attribute_value?:"",
                      identification_attribute_id=modelDto.identification_attribute_id?:1,

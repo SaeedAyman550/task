@@ -22,4 +22,20 @@
             android:name="imageUri"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/vehiclesFragment"
+        android:name="com.example.test.presentation.ui.vehicles.VehiclesFragment"
+        android:label="VehiclesFragment" >
+        <deepLink app:uri="test://example.example.test/vehicles/{brandId}/{modelId}/{imageUri}"/>
+        <argument
+            android:name="modelId"
+            app:argType="string" />
+        <argument
+            android:name="brandId"
+            app:argType="string" />
+        <argument
+            android:name="imageUri"
+            app:argType="string" />
+
+    </fragment>
 </navigation>

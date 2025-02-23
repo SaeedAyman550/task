@@ -39,6 +39,12 @@
         <item name="android:textColor">@color/carYearModelItemColor</item>
         <item name="android:fontWeight">400</item>
     </style>
+<style name="imageCarModelItem">
+    <item name="android:layout_height">130dp</item>
+    <item name="android:background">@color/whiteOpacity</item>
+    <item name="android:scaleType">fitCenter</item>
+</style>
+
 
 
 
