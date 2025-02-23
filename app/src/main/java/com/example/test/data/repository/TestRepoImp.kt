@@ -48,8 +48,8 @@ class TestRepoImp(
 
     override suspend fun getModels(page: Int, brand: Int, category: Int): Resourse<ModelsModel> {
         return try {
-            val result = api.getModels(page=page,brand=brand,category=category)
-                Resourse.Success(FromDtoToModelsModelMapper.map(result))
+            val result = api.getModels(page = page, brand = brand, category = category)
+            return Resourse.Success(FromDtoToModelsModelMapper.map(result))
 
         } catch (e: Exception) {
             Resourse.Error("${e.message.toString()} exception")

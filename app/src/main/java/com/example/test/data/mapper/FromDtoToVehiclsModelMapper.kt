@@ -21,7 +21,7 @@ object FromDtoToVehiclsModelMapper : Mapper<VehiclesDto, VehiclesModel> {
                 data = input.data?.map { vehiclDto->
                     VehicleItem(
                         brand_image=vehiclDto.brand_image?:"",
-                     extra_attributes=vehiclDto.extra_attributes?: emptyList(),
+                     extra_attributes=vehiclDto.extra_attributes?.map {"+ $it\n" }?: emptyList(),
                     model=vehiclDto.model?:"",
                      model_image=vehiclDto.model_image?:"",
                     name=vehiclDto.name?:"",

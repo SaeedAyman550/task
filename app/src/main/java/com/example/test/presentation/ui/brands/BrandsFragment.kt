@@ -11,11 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.test.R
 import com.example.test.databinding.FragmentBrandsBinding
-import com.example.test.domain.utils.NavigateRoute
+import com.example.test.domain.models.BrandsItem
+import com.example.test.presentation.utils.getNavOptionAnimation
+import com.example.test.presentation.utils.navigateToModelScreenUri
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
@@ -36,18 +37,17 @@ class BrandsFragment : Fragment(R.layout.fragment_brands) {
         handleBrandsState(brandAdapter)
         searchForBrand(brandAdapter)
 
-
-
     }
 
     private fun createAdapter() = BrandAdapter { brandItem ->
-        val encodedJson = URLEncoder.encode(brandItem.image, StandardCharsets.UTF_8.toString())
-        val deepLinkUri = Uri.parse("${NavigateRoute.ModelsScreen}${brandItem.id}/${encodedJson}")
-        val navOptions = NavOptions.Builder()
-            .setEnterAnim(R.anim.enter_anim)
-            .build()
-        findNavController().navigate(deepLinkUri, navOptions)
+        navigateToModelsScreen(brandItem)
+    }
 
+    private fun navigateToModelsScreen(brandItem: BrandsItem) {
+        val encodedJson = URLEncoder.encode(brandItem.image, StandardCharsets.UTF_8.toString())
+        val deepLinkUri = Uri.parse(navigateToModelScreenUri(brandItem.id, encodedJson))
+        val navOptions = getNavOptionAnimation()
+        findNavController().navigate(deepLinkUri, navOptions)
     }
 
     private fun handleBrandsState(brandAdapter: BrandAdapter) {

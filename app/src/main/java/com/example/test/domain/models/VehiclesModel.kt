@@ -13,5 +13,13 @@ data class VehicleItem(
     val model_image: String="",
     val name: String="",
     val price: Int=0,
-    val year: String=""
+    val year: String="",
+    var vehicleUi:VehicleUi=VehicleUi()
 )
+
+data class VehicleUi(
+    var isCompareIcon:Boolean=false,
+    var isFavouriteIcon:Boolean=false,
+    var isTextExpand:Boolean=false,
+
+    )
