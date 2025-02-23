@@ -12,10 +12,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.test.R
 import com.example.test.databinding.FragmentBrandsBinding
 import com.example.test.domain.models.BrandsItem
 import com.example.test.presentation.utils.getNavOptionAnimation
+import com.example.test.presentation.utils.hideKeyboard
 import com.example.test.presentation.utils.navigateToModelScreenUri
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -36,7 +38,20 @@ class BrandsFragment : Fragment(R.layout.fragment_brands) {
         val brandAdapter = createAdapter()
         handleBrandsState(brandAdapter)
         searchForBrand(brandAdapter)
+        hideKeyboardWhenScroll()
 
+
+    }
+
+
+    private fun hideKeyboardWhenScroll() {
+        binding.brandRec.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                requireActivity().hideKeyboard()
+
+            }
+        })
     }
 
     private fun createAdapter() = BrandAdapter { brandItem ->
