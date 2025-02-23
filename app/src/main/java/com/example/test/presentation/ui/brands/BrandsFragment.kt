@@ -93,4 +93,17 @@ class BrandsFragment : Fragment(R.layout.fragment_brands) {
         })
     }
 
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.nestedScrollPosition= binding.nestedScroll.scrollY
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.nestedScroll.post {
+            binding.nestedScroll.scrollTo(0, viewModel.nestedScrollPosition) 
+        }
+    }
+
 }

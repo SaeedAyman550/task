@@ -20,7 +20,7 @@ class BrandViewModel @Inject constructor(
 
     private val _brandStateFlow = MutableStateFlow(BrandsState())
     val brandStateFlow = _brandStateFlow.asStateFlow()
-
+    var nestedScrollPosition=0
     var brandList= mutableListOf<BrandsItem>()
 
     init {

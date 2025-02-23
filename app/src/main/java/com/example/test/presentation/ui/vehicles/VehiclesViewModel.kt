@@ -22,6 +22,7 @@ class VehiclesViewModel @Inject constructor(
 
     private val _vehiclesStateFlow = MutableStateFlow(VehiclesState())
     val vehiclesStateFlow = _vehiclesStateFlow.asStateFlow()
+    var nestedScrollPosition=0
 
     private val brandId: String = savedStateHandle[brandIdNavigate] ?: ""
     private val modelId: String = savedStateHandle[modelIdNavigate] ?: ""

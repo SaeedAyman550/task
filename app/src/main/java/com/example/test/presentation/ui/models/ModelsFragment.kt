@@ -118,4 +118,18 @@ class ModelsFragment : Fragment(R.layout.fragment_models) {
             return oldItem.identification_attribute_id == newItem.identification_attribute_id
         }
     }
+
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.nestedScrollPosition= binding.nestedScroll.scrollY
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.nestedScroll.post {
+            binding.nestedScroll.scrollTo(0, viewModel.nestedScrollPosition)
+        }
+    }
+
 }

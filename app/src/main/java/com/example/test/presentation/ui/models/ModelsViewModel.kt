@@ -26,6 +26,7 @@ class ModelsViewModel @Inject constructor(
     private val brandId: String = savedStateHandle[brandIdNavigate] ?: ""
     private val _modelStateFlow = MutableStateFlow(ModelsState())
     val modelStateFlow = _modelStateFlow.asStateFlow()
+    var nestedScrollPosition=0
 
     init {
         viewModelScope.launch {
