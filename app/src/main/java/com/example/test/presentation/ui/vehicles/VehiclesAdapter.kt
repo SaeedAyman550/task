@@ -126,6 +126,8 @@ class VehiclesAdapter() : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder
             carPrice.text = vehicleItem.price.toString()
             differenceText.text = "${vehicleItem.extra_attributes.size} ${binding.root.resources.getString(R.string.differences)}"
             textList.text = vehicleItem.extra_attributes.joinToString("")
+            changeDrawableColor(vehicleItem.vehicleUi.isFavouriteIcon, binding.favouriteIcon)
+            changeDrawableColor(vehicleItem.vehicleUi.isCompareIcon, binding.compareIcon)
         }
     }
 
