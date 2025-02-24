@@ -3,6 +3,7 @@ package com.example.test.presentation.ui.vehicles
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -22,7 +23,8 @@ class VehiclesFragment : Fragment(R.layout.fragment_vehicles) {
     private lateinit var binding: FragmentVehiclesBinding
     private val viewModel: VehiclesViewModel by viewModels()
     private val modelArgs: VehiclesFragmentArgs by navArgs()
-    private val adapter=VehiclesAdapter()
+    private val adapter= createVehiclesAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,6 +52,9 @@ class VehiclesFragment : Fragment(R.layout.fragment_vehicles) {
         }
     }
 
+    private fun createVehiclesAdapter() = VehiclesAdapter() { compareCount ->
+            binding.include.textView.text = compareCount.toString()
+    }
     private fun loadParentBrandImage() {
         val decodeUri = URLDecoder.decode(modelArgs.imageUri, StandardCharsets.UTF_8.toString())
         loadGlideImage(decodeUri, binding.parentBrandImage)

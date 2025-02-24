@@ -64,10 +64,19 @@
 
                 />
 
+
         </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
-
+        <include
+            android:id="@+id/include"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="25dp"
+            layout="@layout/compare_button"
+            app:layout_anchor="@id/nested_scroll"
+            app:layout_anchorGravity="bottom|end"
+            />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     
 

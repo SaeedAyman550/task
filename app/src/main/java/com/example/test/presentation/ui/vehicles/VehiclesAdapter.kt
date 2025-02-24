@@ -8,14 +8,18 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test.R
 import com.example.test.databinding.VehiclesItemBinding
+import com.example.test.domain.models.BrandsItem
 import com.example.test.domain.models.VehicleItem
 import com.example.test.presentation.utils.collapseTextView
 import com.example.test.presentation.utils.expandTextView
 import com.example.test.presentation.utils.loadGlideImage
 
-class VehiclesAdapter() : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder>() {
+class VehiclesAdapter(
+    val listener: (Int) -> Unit
+) : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder>() {
 
     private var vehiclesList: List<VehicleItem> = emptyList()
+    private var compareCount=0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleViewHolder {
         val binding = VehiclesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,14 +29,12 @@ class VehiclesAdapter() : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
         val vehicleItem = vehiclesList[position]
         holder.bind(vehicleItem,position)
-        holder.itemView.setOnClickListener{
 
-        }
     }
 
     override fun getItemCount(): Int = vehiclesList.size
 
-     class VehicleViewHolder(private val binding: VehiclesItemBinding) :
+    inner class VehicleViewHolder(private val binding: VehiclesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(vehicleItem: VehicleItem,position: Int) {
@@ -44,7 +46,6 @@ class VehiclesAdapter() : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder
                 compareIconClickLisener(vehicleItem)
                 differenceTextClickLicener(vehicleItem)
             }
-
 
 
         }
@@ -83,6 +84,11 @@ class VehiclesAdapter() : RecyclerView.Adapter<VehiclesAdapter.VehicleViewHolder
              binding.compareIcon.setOnClickListener {
                  vehicleItem.vehicleUi.isCompareIcon = !vehicleItem.vehicleUi.isCompareIcon
                  changeDrawableColor(vehicleItem.vehicleUi.isCompareIcon, binding.compareIcon)
+                 if (vehicleItem.vehicleUi.isCompareIcon)
+                     compareCount++
+                 else
+                     compareCount--
+                 listener(compareCount)
              }
          }
 
