@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 @HiltViewModel
 class ModelsViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
     private val useCase: ModelsUseCase
 ) : ViewModel() {
 
@@ -29,11 +29,7 @@ class ModelsViewModel @Inject constructor(
     var nestedScrollPosition=0
 
     init {
-        viewModelScope.launch {
-            delay(2000)
             getModels(brandId = brandId.toInt())
-        }
-
     }
 
     fun getModels(

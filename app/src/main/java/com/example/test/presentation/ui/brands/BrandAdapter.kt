@@ -39,10 +39,6 @@ class BrandAdapter(
                 image=binding.image,
                 shimmer=binding.shimmer
             )
-            binding.card.post {
-                binding.card.layoutParams.height = binding.card.width
-                binding.card.requestLayout()
-            }
             binding.appCompatTextView.text = brand.name
         }
     }
