@@ -29,7 +29,11 @@ class ModelsViewModel @Inject constructor(
     var nestedScrollPosition=0
 
     init {
+        viewModelScope.launch {
+            delay(200)
             getModels(brandId = brandId.toInt())
+        }
+
     }
 
     fun getModels(
